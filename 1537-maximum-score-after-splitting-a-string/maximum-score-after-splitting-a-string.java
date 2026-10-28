@@ -1,29 +1,29 @@
 class Solution {
     public int maxScore(String s) {
-        int co=0;
+        int tone=0;
         for(int i=0;i<s.length();i++){
             if(s.charAt(i)=='1'){
-                co++;
+                tone++;
             }
             
         }
-        int z=0;
-        int r=0;
-        int rv;
-        int v=0;
+        int zero=0;
+        int result=0;
+        int rone;
+        int one=0;
         for(int i=0;i<s.length()-1;i++){
             if(s.charAt(i)=='0'){
-                z++;
+                zero++;
             }
             else{
-                v++;
+                one++;
             }
-             rv=co-v;
-        r=Math.max(r,rv+z);
-        
+        rone=tone-one;
+        result=Math.max(result,rone+zero);
+
         
         }
        
-        return r;
+        return result;
     }
 }
