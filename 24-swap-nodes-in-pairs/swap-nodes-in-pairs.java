@@ -1,17 +1,27 @@
+
 class Solution {
     public ListNode swapPairs(ListNode head) {
 
-        if (head == null || head.next == null) {
-            return head;
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+
+        ListNode point = dummy;
+
+        while (point.next != null && point.next.next != null) {
+
+            ListNode swap1 = point.next;
+            ListNode swap2 = point.next.next;
+
+            // Swap links
+            swap1.next = swap2.next;
+            swap2.next = swap1;
+
+            point.next = swap2;
+
+            // Move to next pair
+            point = swap1;
         }
 
-        ListNode first = head;
-        ListNode second = head.next;
-
-        first.next = swapPairs(second.next);
-
-        second.next = first;
-
-        return second;
+        return dummy.next;
     }
 }
